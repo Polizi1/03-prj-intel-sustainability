@@ -1,186 +1,894 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intel: Sustainability Through the Ages</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Intel Sustainability Timeline</title>
+
+    <!-- Bootstrap RTL -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f9fc;
+            color: #17233c;
+        }
+
+        /* HERO */
+
+        header {
+            min-height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(0, 75, 135, 0.88),
+                    rgba(0, 120, 180, 0.82)
+                ),
+                url("img/2.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .intel-logo {
+            width: 190px;
+            margin-bottom: 30px;
+            filter: brightness(0) invert(1);
+        }
+
+        header h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 20px;
+            line-height: 1.9;
+            max-width: 750px;
+            margin: 0 auto 30px;
+        }
+
+        .explore-button {
+            display: inline-block;
+            padding: 14px 28px;
+            background: white;
+            color: #0068b5;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .explore-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* TIMELINE */
+
+        main {
+            padding: 70px 30px;
+        }
+
+        .timeline-title {
+            text-align: center;
+            font-size: 40px;
+            color: #0068b5;
+            margin-bottom: 15px;
+        }
+
+        .timeline-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+            color: #536477;
+        }
+
+        .timeline {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            padding: 30px 20px 45px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+        }
+
+        .timeline-card {
+            flex: 0 0 300px;
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+            scroll-snap-align: center;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 104, 181, 0.25);
+        }
+
+        .timeline-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h2 {
+            color: #0068b5;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .card-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .card-content p {
+            color: #596b7d;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .scroll-message {
+            text-align: center;
+            margin-top: 20px;
+            color: #0068b5;
+            font-weight: bold;
+            line-height: 1.8;
+        }
+
+        .scroll-message span {
+            color: #68798a;
+            font-weight: normal;
+        }
+
+
+        /* TIMELINE SCROLLBAR */
+
+        .timeline::-webkit-scrollbar {
+            height: 20px;
+        }
+
+        .timeline::-webkit-scrollbar-track {
+            background: #dcecf5;
+            border-radius: 10px;
+        }
+
+        .timeline::-webkit-scrollbar-thumb {
+            background: #0068b5;
+            border-radius: 10px;
+            min-width: 100px;
+        }
+
+        .timeline::-webkit-scrollbar-thumb:hover {
+            background: #004f8a;
+        }
+
+
+        /* NEW BOOTSTRAP THREE-COLUMN SECTION */
+
+        .sustainability-section {
+            background: white;
+            padding: 70px 30px;
+        }
+
+        .sustainability-section h2 {
+            text-align: center;
+            font-size: 40px;
+            color: #0068b5;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 45px;
+            color: #536477;
+            line-height: 1.8;
+        }
+
+        .info-card {
+            height: 100%;
+            padding: 35px 25px;
+            border-radius: 18px;
+            background: #f4f9fc;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 104, 181, 0.18);
+        }
+
+        .info-card i {
+            font-size: 45px;
+            color: #0068b5;
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            color: #0068b5;
+            margin-bottom: 15px;
+        }
+
+        .info-card p {
+            color: #596b7d;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+
+        /* NEWSLETTER */
+
+        .newsletter {
+            background: #0068b5;
+            color: white;
+            padding: 70px 30px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .newsletter-form {
+            max-width: 550px;
+            margin: auto;
+            text-align: right;
+        }
+
+        .newsletter-form label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .newsletter-form button {
+            margin-top: 15px;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #17233c;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            header {
+                min-height: 550px;
+                padding: 40px 20px;
+            }
+
+            header h1 {
+                font-size: 40px;
+            }
+
+            header p {
+                font-size: 17px;
+            }
+
+            .intel-logo {
+                width: 150px;
+            }
+
+            main {
+                padding: 50px 20px;
+            }
+
+            .timeline-title {
+                font-size: 32px;
+            }
+
+            .timeline {
+                flex-direction: row;
+                overflow-x: auto;
+            }
+
+            .timeline-card {
+                width: 280px;
+                flex: 0 0 280px;
+            }
+
+            .timeline-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .sustainability-section h2 {
+                font-size: 32px;
+            }
+
+            .newsletter h2 {
+                font-size: 32px;
+            }
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-  <!-- Header / Hero Section -->
-  <header>
-    <div class="hero-content">
-      <img class="intel-logo" src="img/intel-header-logo.svg" alt="Intel Logo" />
 
-      <h1>Sustainability Through the Ages</h1>
+    <!-- HERO -->
 
-      <p>
-        Explore Intel's journey through time, discovering how our commitment
-        to innovation has shaped a more sustainable future for technology
-        and our planet.
-      </p>
+    <header>
 
-      <a href="#timeline" class="explore-button">Explore the Timeline ↓</a>
-    </div>
-  </header>
+        <div class="hero-content">
 
+            <img
+                src="img/intel-logo.png"
+                alt="شعار إنتل"
+                class="intel-logo"
+            >
 
-  <!-- Timeline Section -->
-  <main>
+            <h1>
+                رحلة إنتل في الاستدامة
+            </h1>
 
-    <h2 class="timeline-title">Intel's Sustainability Journey</h2>
+            <p>
+                استكشف رحلة إنتل عبر الزمن، واكتشف كيف ساهم التزامها
+                بالابتكار في تشكيل مستقبل أكثر استدامة للتكنولوجيا وكوكبنا.
+            </p>
 
-    <p class="timeline-intro">
-      From technological breakthroughs to ambitious sustainability goals,
-      explore the milestones that have shaped Intel's journey.
-    </p>
+            <a
+                href="#timeline"
+                class="explore-button"
+            >
+                استكشف الجدول الزمني ↓
+            </a>
 
-    <section class="timeline" id="timeline">
-
-      <!-- Card 1: 1968 -->
-      <div class="timeline-card">
-        <img src="img/1.jpg" alt="Intel history">
-        <div class="card-content">
-          <h2>1968</h2>
-          <h3>Intel Founded</h3>
-          <p>
-            Robert Noyce and Gordon Moore rename the newly formed company
-            NM Electronics to Intel Corporation, laying the foundation for
-            decades of technological innovation.
-          </p>
         </div>
-      </div>
+
+    </header>
 
 
-      <!-- Card 2: 1971 -->
-      <div class="timeline-card">
-        <img src="img/2.jpg" alt="Intel microprocessor">
-        <div class="card-content">
-          <h2>1971</h2>
-          <h3>First Microprocessor</h3>
-          <p>
-            Intel debuts the 4004, the world's first commercial microprocessor,
-            igniting the microprocessor revolution and propelling the future
-            of computing devices.
-          </p>
+
+    <!-- EXISTING TIMELINE -->
+
+    <main id="timeline">
+
+        <h2 class="timeline-title">
+            الجدول الزمني لاستدامة إنتل
+        </h2>
+
+        <p class="timeline-intro">
+            من الإنجازات التكنولوجية إلى أهداف الاستدامة الطموحة،
+            استكشف أهم المحطات في رحلة إنتل.
+        </p>
+
+
+        <div class="timeline">
+
+
+            <!-- 1968 -->
+
+            <article class="timeline-card">
+
+                <img
+                    src="img/1.jpg"
+                    alt="تأسيس شركة إنتل عام 1968"
+                >
+
+                <div class="card-content">
+
+                    <h2>1968</h2>
+
+                    <h3>
+                        تأسست شركة إنتل
+                    </h3>
+
+                    <p>
+                        تأسست شركة إنتل عام 1968، وبدأت رحلتها كشركة
+                        متخصصة في التكنولوجيا والابتكار.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 1971 -->
+
+            <article class="timeline-card">
+
+                <img
+                    src="img/2.jpg"
+                    alt="أول معالج دقيق من إنتل"
+                >
+
+                <div class="card-content">
+
+                    <h2>1971</h2>
+
+                    <h3>
+                        أول معالج دقيق
+                    </h3>
+
+                    <p>
+                        قدمت إنتل معالج 4004، وهو أحد أوائل المعالجات
+                        الدقيقة المتاحة تجارياً في العالم.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 1978 -->
+
+            <article class="timeline-card">
+
+                <img
+                    src="img/3.jpg"
+                    alt="معالج إنتل 8086"
+                >
+
+                <div class="card-content">
+
+                    <h2>1978</h2>
+
+                    <h3>
+                        معالج 8086
+                    </h3>
+
+                    <p>
+                        أطلقت إنتل معالج 8086، الذي ساعد في تأسيس
+                        بنية x86.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 1985 -->
+
+            <article class="timeline-card">
+
+                <img
+                    src="img/4.jpg"
+                    alt="معالج إنتل 386"
+                >
+
+                <div class="card-content">
+
+                    <h2>1985</h2>
+
+                    <h3>
+                        معالج 386
+                    </h3>
+
+                    <p>
+                        قدمت إنتل معالج 386، وواصلت تطوير
+                        تقنيات المعالجات وبنية x86.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 2006 -->
+
+            <article class="timeline-card">
+
+                <img
+                    src="img/5.jpg"
+                    alt="استدامة إنتل وانبعاثات غازات الدفيئة"
+                >
+
+                <div class="card-content">
+
+                    <h2>2006</h2>
+
+                    <h3>
+                        ذروة انبعاثات غازات الدفيئة
+                    </h3>
+
+                    <p>
+                        كان عام 2006 نقطة مهمة في رحلة إنتل
+                        لمعالجة وتقليل انبعاثات غازات الدفيئة.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 2020 -->
+
+            <article class="timeline-card">
+
+                <img
+                    src="img/6.jpg"
+                    alt="استراتيجية RISE من إنتل"
+                >
+
+                <div class="card-content">
+
+                    <h2>2020</h2>
+
+                    <h3>
+                        استراتيجية RISE
+                    </h3>
+
+                    <p>
+                        قدمت إنتل استراتيجية RISE لتوجيه ممارسات
+                        الأعمال المسؤولة والشاملة والمستدامة.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 2022 -->
+
+            <article class="timeline-card">
+
+                <img
+                    src="img/7.jpg"
+                    alt="هدف إنتل للوصول إلى صافي انبعاثات صفري"
+                >
+
+                <div class="card-content">
+
+                    <h2>2022</h2>
+
+                    <h3>
+                        صافي انبعاثات صفري بحلول 2040
+                    </h3>
+
+                    <p>
+                        أعلنت إنتل عن هدف للوصول إلى صافي انبعاثات
+                        صفرية من غازات الدفيئة في عملياتها العالمية
+                        بحلول عام 2040.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 2023 -->
+
+            <article class="timeline-card">
+
+                <img
+                    src="img/8.jpg"
+                    alt="استخدام إنتل للكهرباء المتجددة"
+                >
+
+                <div class="card-content">
+
+                    <h2>2023</h2>
+
+                    <h3>
+                        الكهرباء المتجددة
+                    </h3>
+
+                    <p>
+                        واصلت إنتل زيادة استخدامها للكهرباء المتجددة
+                        كجزء من جهودها في مجال الاستدامة.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 2024 -->
+
+            <article class="timeline-card">
+
+                <img
+                    src="img/9.jpg"
+                    alt="قمة الاستدامة من إنتل"
+                >
+
+                <div class="card-content">
+
+                    <h2>2024</h2>
+
+                    <h3>
+                        قمة الاستدامة
+                    </h3>
+
+                    <p>
+                        واصلت إنتل تسليط الضوء على الاستدامة
+                        من خلال قمة الاستدامة الخاصة بها.
+                    </p>
+
+                </div>
+
+            </article>
+
+
         </div>
-      </div>
 
 
-      <!-- Card 3: 1978 -->
-      <div class="timeline-card">
-        <img src="img/3.jpg" alt="Intel processor">
-        <div class="card-content">
-          <h2>1978</h2>
-          <h3>8086 Processor</h3>
-          <p>
-            Launch of the 8086 processor, establishing the x86 architecture
-            that drives countless PCs and servers in the modern era.
-          </p>
+        <div class="scroll-message">
+
+            <div>
+                ← مرر لاستكشاف الجدول الزمني →
+            </div>
+
+            <span>
+                مرر المؤشر فوق البطاقات لرؤية التأثير التفاعلي.
+            </span>
+
         </div>
-      </div>
+
+    </main>
 
 
-      <!-- Card 4: 1985 -->
-      <div class="timeline-card">
-        <img src="img/4.jpg" alt="Intel 386 processor">
-        <div class="card-content">
-          <h2>1985</h2>
-          <h3>386 Processor</h3>
-          <p>
-            Intel introduces the 386 processor with 32-bit architecture,
-            ushering in a new era of performance and multitasking for
-            personal computers.
-          </p>
+
+    <!-- NEW BOOTSTRAP THREE-COLUMN SECTION -->
+
+    <section class="sustainability-section">
+
+        <div class="container">
+
+            <h2>
+                مجالات التركيز على الاستدامة
+            </h2>
+
+            <p class="section-intro">
+                تشمل جهود إنتل في مجال الاستدامة البيئة والطاقة
+                والتكنولوجيا والابتكار.
+            </p>
+
+
+            <!-- Bootstrap Grid Row -->
+
+            <div class="row g-4">
+
+
+                <!-- COLUMN 1 -->
+
+                <div class="col-12 col-md-4">
+
+                    <div class="info-card">
+
+                        <i
+                            class="bi bi-globe2"
+                            aria-hidden="true"
+                        ></i>
+
+                        <h3>
+                            البيئة
+                        </h3>
+
+                        <p>
+                            تعمل إنتل على تقليل الآثار البيئية
+                            ودعم عمليات أكثر استدامة.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="btn btn-primary"
+                        >
+                            اعرف المزيد
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COLUMN 2 -->
+
+                <div class="col-12 col-md-4">
+
+                    <div class="info-card">
+
+                        <i
+                            class="bi bi-lightning-charge"
+                            aria-hidden="true"
+                        ></i>
+
+                        <h3>
+                            الطاقة
+                        </h3>
+
+                        <p>
+                            تعد الكهرباء المتجددة جزءاً مهماً
+                            من استراتيجية إنتل للاستدامة.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="btn btn-primary"
+                        >
+                            اعرف المزيد
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COLUMN 3 -->
+
+                <div class="col-12 col-md-4">
+
+                    <div class="info-card">
+
+                        <i
+                            class="bi bi-cpu"
+                            aria-hidden="true"
+                        ></i>
+
+                        <h3>
+                            التكنولوجيا
+                        </h3>
+
+                        <p>
+                            تساعد التكنولوجيا والابتكار في دعم
+                            أهداف إنتل المتعلقة بالاستدامة.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="btn btn-primary"
+                        >
+                            اعرف المزيد
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
         </div>
-      </div>
-
-
-      <!-- Card 5: 2006 -->
-      <div class="timeline-card">
-        <img src="img/1.jpg" alt="Sustainable technology">
-        <div class="card-content">
-          <h2>2006</h2>
-          <h3>Peak GHG Emissions</h3>
-          <p>
-            This year marks Intel's highest annual greenhouse gas emissions
-            for operations. Over subsequent years, Intel invests heavily in
-            chemical abatement, renewable energy, and energy-efficient
-            manufacturing to reverse this trend.
-          </p>
-        </div>
-      </div>
-
-
-      <!-- Card 6: 2020 -->
-      <div class="timeline-card">
-        <img src="img/2.jpg" alt="Sustainability strategy">
-        <div class="card-content">
-          <h2>2020</h2>
-          <h3>RISE Strategy</h3>
-          <p>
-            Intel launches its RISE (Responsible, Inclusive, Sustainable,
-            Enabling) strategy and 2030 goals, aiming to drive industry-wide
-            progress on climate action, water stewardship, and waste reduction.
-          </p>
-        </div>
-      </div>
-
-
-      <!-- Card 7: 2022 -->
-      <div class="timeline-card">
-        <img src="img/3.jpg" alt="Net zero sustainability">
-        <div class="card-content">
-          <h2>2022</h2>
-          <h3>Net-Zero By 2040</h3>
-          <p>
-            Intel announces its commitment to achieve net-zero greenhouse
-            gas emissions (Scope 1 and 2) across its global operations
-            by 2040, building on years of environmental initiatives.
-          </p>
-        </div>
-      </div>
-
-
-      <!-- Card 8: 2023 -->
-      <div class="timeline-card">
-        <img src="img/4.jpg" alt="Renewable electricity">
-        <div class="card-content">
-          <h2>2023</h2>
-          <h3>Renewable Electricity</h3>
-          <p>
-            The company achieves 99% renewable electricity usage worldwide,
-            helping to drastically lower carbon emissions and driving progress
-            toward Intel's long-term sustainability goals.
-          </p>
-        </div>
-      </div>
-
-
-      <!-- Card 9: 2024 -->
-      <div class="timeline-card">
-        <img src="img/1.jpg" alt="Intel sustainability summit">
-        <div class="card-content">
-          <h2>2024</h2>
-          <h3>Sustainability Summit</h3>
-          <p>
-            Intel hosts its first Sustainability Summit, uniting suppliers,
-            government officials, and industry leaders to collaborate on
-            next-generation sustainable semiconductor manufacturing.
-          </p>
-        </div>
-      </div>
 
     </section>
 
-    <p class="scroll-message">
-      ← Scroll to explore the timeline →<br>
-      <span>Hover over the cards to learn more!</span>
-    </p>
 
-  </main>
+
+    <!-- NEWSLETTER -->
+
+    <section class="newsletter">
+
+        <div class="container">
+
+            <h2>
+                اشترك في نشرتنا الإخبارية للاستدامة
+                <i
+                    class="bi bi-envelope"
+                    aria-hidden="true"
+                ></i>
+            </h2>
+
+            <p>
+                احصل على آخر التحديثات والمعلومات حول
+                جهود إنتل في مجال الاستدامة.
+            </p>
+
+
+            <form class="newsletter-form">
+
+                <div class="mb-3">
+
+                    <label for="email">
+                        أدخل بريدك الإلكتروني
+                    </label>
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        placeholder="name@example.com"
+                        required
+                        aria-required="true"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-light"
+                >
+                    اشترك
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 شركة إنتل. جميع الحقوق محفوظة.
+        </p>
+
+    </footer>
+
+
+
+    <!-- Bootstrap JavaScript -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
 
 </body>
+
 </html>
