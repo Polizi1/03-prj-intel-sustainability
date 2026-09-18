@@ -44,9 +44,10 @@ header {
 }
 
 .intel-logo {
-  width: 190px;
-  margin-bottom: 30px;
-  filter: brightness(0) invert(1);
+    width: 380px;
+    max-width: 85%;
+    margin-bottom: 35px;
+    filter: brightness(0) invert(1);
 }
 
 header h1 {
